@@ -14,12 +14,62 @@
 <body>
     <div class = title>
         <div class = "container mt-3">
-            <div class = "text-start">
-                <div >
-                    <h2 >Launch Day Countdown</h2>
-                    <p class = " fw-bold">Documentation</p>
+            <div class = "row">
+                <div class="d-flex align-items-baseline gap-4">
+                    <img src = "assets/logo.png" alt = "logo" class = "logo">
+                    <h1 class=" "mb-0">Launch Day Countdown</h1>
+                    <h4 class="fw-semibold text-secondary mb-1">Documentation</h4>
+                </div> 
+            </div>  
+        </div>
+    </div>
+    <div class = "sidebar">
+        <div class = "col">
+            <div class = "d-flex flex-column gap-4">
+
+                <button class= "sidebarBtn"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#introductionMenu"><em>Introduction</em></button>
+
+                <div class="collapse show" id="introductionMenu">
+                    <div class="ms-4">
+
+                        <a href="#overview" class="nav-link">Overview</a>
+                        <a href="#credits" class="nav-link">Credits</a>
+                        <a href="#utilities" class="nav-link">Useful Tools</a>
+
+                    </div>
                 </div>
-            </div>    
+
+                <button class= "sidebarBtn"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#countdownMenu"><em>Countdown</em></button>
+
+                <div class="collapse show" id="countdownMenu">
+                    <div class="ms-4">
+
+                        <a href="#overview" class="nav-link">Overview</a>
+                        <a href="#credits" class="nav-link">Math</a>
+                        <a href="#utilities" class="nav-link">Display</a>
+
+                    </div>
+                </div>
+
+                <button class= "sidebarBtn"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#lasershowMenu"><em>Lasershow</em></button>
+
+                <div class="collapse show" id="lasershowMenu">
+                    <div class="ms-4">
+
+                        <a href="#overview" class="nav-link">Overview</a>
+                        <a href="#credits" class="nav-link">Bottom Lasers</a>
+                        <a href="#utilities" class="nav-link">Top Lasers</a>
+
+                    </div>
+                </div>
+                
+            </div>
         </div>
     </div>
 </body>
