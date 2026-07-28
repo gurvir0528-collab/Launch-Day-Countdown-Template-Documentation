@@ -1,5 +1,22 @@
+.layout{
+    display: flex;
+}
+.sidebar {
+    width: 320px;
+    flex-shrink: 0;
+    padding: 40px;
+}
+#content {
+    flex: 1;
+    padding: 60px 80px;
+    max-width: 900px;
+    margin: 0 auto;
+}
 body {
     background-color:rgb(0, 0, 0);
+    color:white;
+    font-family: "Fredoka", sans-serif;
+    padding: 20px;
 }
 .active {
     color: white;
@@ -51,7 +68,54 @@ body {
     font-size: 1.3rem;
     padding: 5px;
 }
+.bodyTitle{
+    margin-bottom: 30px
+}
+.bodyText{
+    margin-bottom: 25px
+}
+.custom-card{
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,.05),
+        rgba(255,255,255,.02)
+    );
+    border: 5px solid rgba(255,255,255,.12);
+    width:40%;
+    padding:24px;
+    min-height: 180px;
+    color: white;
+    text-align: left;
+    box-shadow:
+        0 15px 40px rgba(255,255,255,.1);
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+}
+.custom-card h4{
+    margin-bottom:15px;
+}
 
+.custom-card p{
+    opacity:.7;
+    line-height:1.5;
+}
+.card-title a{
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s ease;
+}
+
+.card-title a:hover{
+    color:rgb(224, 224, 206);
+}
+.section-line{
+    height:2px;
+    background:rgba(255,255,255,.15);
+    margin:30px 0;
+}
 .sidebarBtn:hover{
     color:lightskyblue;
 }
@@ -59,8 +123,12 @@ body {
 .nav-link:hover{
     color:lightskyblue;
 }
-
-
+.custom-card:hover{
+    transform: translateY(-4px);
+    border-color: rgba(26,135,84,.6);
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.35);
+}
 .collapse-show{
     opacity: 0;
     transform: translateX(-10px);
