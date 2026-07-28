@@ -1,0 +1,17 @@
+body {
+    background-color:ivory;
+}
+.title{
+    position: sticky;
+    top:0 ;
+    z-index: 1000;
+
+    font-family: "Fredoka", sans-serif;
+    color : rgb(0, 0, 0);
+
+    background: rgba(255, 255, 240, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(15px); /* Safari */
+
+    border-bottom: 2px solid rgba(0, 0, 0, 0.08)
+}
