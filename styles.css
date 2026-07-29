@@ -1,22 +1,29 @@
-.layout{
+.main{
+    flex:1;
     display: flex;
-}
-.sidebar {
-    width: 320px;
-    flex-shrink: 0;
-    padding: 40px;
+    flex-direction: column;
+    min-height: 0;
+    min-width:0;
+    overflow-y: auto;
 }
 #content {
     flex: 1;
-    padding: 60px 80px;
+    padding: 160px 80px 60px;
+    width:100%;
     max-width: 900px;
     margin: 0 auto;
+    box-sizing: border-box;
+    min-height: 0;
 }
+
 body {
+    display: flex;
+    height:100vh;
+    margin:0;
     background-color:rgb(0, 0, 0);
     color:white;
     font-family: "Fredoka", sans-serif;
-    padding: 20px;
+    overflow: hidden;
 }
 .active {
     color: white;
@@ -28,29 +35,32 @@ body {
     height: auto;
 }
 .title{
-    position: sticky;
+    position: fixed;
     top:0 ;
+    width: 100%;
     z-index: 1000;
     padding: 20px;
-
     font-family: "Fredoka", sans-serif;
     color : rgb(255, 255, 255);
-
     background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(15px); /* Safari */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    isolation: isolate;
 
-    border-bottom: 2px solid rgba(255, 255, 255, 0.2)
 }
 .sidebar{
     color:white;
-    padding: 40px;
+    padding: 160px 40px 40px 40px;
+    width:320px;
+    flex-shrink:0;
     font-family: "Fredoka", sans-serif;
     text-align: left;
-    position: sticky;
-
-    display: flex; 
+    overflow-y: auto;
     justify-content: flex-start;
+    background: rgba(255,255,255,.02);
+    backdrop-filter: blur(8px);
+    border-right: 1px solid rgba(255,255,255,.08);
 
 }
 
@@ -114,6 +124,7 @@ body {
 .section-line{
     height:2px;
     background:rgba(255,255,255,.15);
+    width:100%;
     margin:30px 0;
 }
 .sidebarBtn:hover{
