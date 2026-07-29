@@ -142,6 +142,26 @@ body {
         border-color .25s ease,
         box-shadow .25s ease;
 }
+.custom-card3{
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,.05),
+        rgba(255,255,255,.02)
+    );
+    border: 5px solid rgba(252, 0, 0, 0.12);
+    width:100%;
+    padding:2px;
+    min-height: 10px;
+    color: white;
+    text-align: left;
+    box-shadow:
+        0 15px 40px rgba(255,255,255,.1);
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+}
 .custom-card h4{
     margin-bottom:15px;
 }
@@ -207,6 +227,20 @@ body {
     padding: 2px;
 }
 
+.codeWarning{
+    max-width: 50%; 
+    height: auto; 
+    size: 20%;
+    object-fit: cover;
+    border: 2px solid rgba(193,135,247,.12);
+    background:rgb(226, 43, 43);
+    box-shadow: 0px 4px 10px 2px rgba(247, 135, 135, 0.5);
+    border-radius: 15px;
+    transition:
+        box-shadow 0.3s ease;
+
+    padding: 2px;
+}
 
 .pfp:hover{
     box-shadow: 0px 4px 10px 2px rgba(193, 135, 247, 1);
@@ -214,6 +248,10 @@ body {
 
 .code:hover{
     box-shadow: 0px 4px 10px 2px rgba(193, 135, 247, 1);
+}
+
+.codeWarning:hover{
+    box-shadow: 0px 4px 10px 2px rgb(247, 135, 135);
 }
 
 .sidebarBtn:hover{
