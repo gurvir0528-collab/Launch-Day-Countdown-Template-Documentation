@@ -68,4 +68,13 @@ main.addEventListener('scroll', () =>{
     };
 });
 
+
+const intervalId = setInterval(() => {
+    const animation = document.getElementById("smoothAnimation1");
+
+    if(animation){
+        animation.classList.toggle("open");
+    }   
+}, 2000);
+
 loadPage("introduction/overview.html");
