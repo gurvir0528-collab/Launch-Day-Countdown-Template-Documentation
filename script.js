@@ -1,9 +1,24 @@
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+const pages = [
+    "introduction/overview.html", "introduction/credits.html", "introduction/usefulTools.html"
+]
+
+let pageLoading = false;
 
 async function loadPage(page){
+    pageLoading = true;
+    console.log(pageIndex)
     const response = await fetch("pages/" + page);
     const html = await response.text();
     const htmlPage = document.getElementById("content")
+    const mainContainer = document.querySelector(".main");
+    htmlPage.classList.add("fade");
+    await sleep(350);
     htmlPage.innerHTML = html;
+    mainContainer.scrollTo(0, 0);
+    htmlPage.classList.remove("fade")
+    await sleep(400);
+    pageLoading = false;
 }
 
 const buttons = document.querySelectorAll('button');
@@ -30,8 +45,27 @@ navlinks.forEach((navlink) => {
 
         event.preventDefault();
         const pageName = navlink.dataset.page;
+        pageIndex = pages.indexOf(pageName);
 
         loadPage(pageName);
     });
 })
+
+const main = document.querySelector(".main");
+let pageIndex = 0;
+
+main.addEventListener('scroll', () =>{
+    const totalHeight = main.scrollHeight;
+    const clientHeight = main.clientHeight;
+    const scrollTop = main.scrollTop;
+
+    if(totalHeight - scrollTop <= clientHeight +2 ){
+            if(!pageLoading && pageIndex < pages.length - 1){
+            pageIndex += 1
+            const pageName = pages[pageIndex];
+            loadPage(pageName)
+        }
+    };
+});
+
 loadPage("introduction/overview.html");
