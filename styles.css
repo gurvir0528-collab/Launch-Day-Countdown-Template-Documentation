@@ -35,7 +35,7 @@ body {
 }
 .active {
     color: white;
-    border-left: 3px solid #4ea3ff;
+    border-left: 3px solid rgb(26,113,84);
     padding-left: 12px;
 }
 .logo{
@@ -81,16 +81,19 @@ body {
     transition: color .2s;
 }
 
-.nav-link{
+.nav-link {
+    display: block; 
     background-color: transparent;
     font-size: 1.3rem;
-    padding: 5px;
-    transition: background-color .2s ease, color .2s ease;
+    padding: 8px 12px;
+    
+    transition: all 0.4s ease; 
 }
 
-.nav-link.active{
-    background-color: rgba(26, 113, 84, 0.3);
-    border-radius: 6px;
+.nav-link.active {
+    background-color: rgba(26, 113, 84, 0.5); 
+    border-radius: 4px;
+    color: #ffffff;
 }
 
 .bodyTitle{
@@ -214,11 +217,11 @@ body {
 }
 
 .sidebarBtn:hover{
-    color:lightskyblue;
+    color:rgb(160, 238, 192);;
 }
 
 .nav-link:hover{
-    color:lightskyblue;
+    color:rgb(160, 238, 192);
 }
 .custom-card:hover{
     transform: translateY(-4px);

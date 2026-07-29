@@ -1,6 +1,11 @@
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 const pages = [
-    "introduction/overview.html", "introduction/credits.html", "introduction/usefulTools.html"
+    "introduction/overview.html", 
+    "introduction/credits.html", 
+    "introduction/usefulTools.html",
+    "countdown/overview.html",
+    "countdown/math.html",
+    "countdown/display.html"
 ]
 
 function updateHighlight(newPage){
