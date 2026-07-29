@@ -8,7 +8,7 @@
 }
 #content {
     flex: 1;
-    padding: 160px 80px 60px;
+    padding: 170px 80px 60px 40px;
     width:100%;
     max-width: 900px;
     margin: 0 auto;
@@ -31,7 +31,7 @@ body {
     padding-left: 12px;
 }
 .logo{
-    width: 60px;
+    width: 40px;
     height: auto;
 }
 .title{
@@ -43,15 +43,15 @@ body {
     font-family: "Fredoka", sans-serif;
     color : rgb(255, 255, 255);
     background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px); /* Safari */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* Safari */
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
     isolation: isolate;
 
 }
 .sidebar{
     color:white;
-    padding: 160px 40px 40px 40px;
+    padding: 170px 40px 40px 40px;
     width:320px;
     flex-shrink:0;
     font-family: "Fredoka", sans-serif;
