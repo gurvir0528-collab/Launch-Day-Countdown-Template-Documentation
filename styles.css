@@ -82,10 +82,17 @@ body {
 }
 
 .nav-link{
-    transition: color .2s;
+    background-color: transparent;
     font-size: 1.3rem;
     padding: 5px;
+    transition: background-color .2s ease, color .2s ease;
 }
+
+.nav-link.active{
+    background-color: rgba(26, 113, 84, 0.3);
+    border-radius: 6px;
+}
+
 .bodyTitle{
     margin-bottom: 30px
 }

@@ -3,6 +3,16 @@ const pages = [
     "introduction/overview.html", "introduction/credits.html", "introduction/usefulTools.html"
 ]
 
+function updateHighlight(newPage){
+
+    const navlinks = document.querySelectorAll('.nav-link');
+    navlinks.forEach(navlink => navlink.classList.remove("active"));
+
+    const activeLink = document.querySelector(`.nav-link[data-page="${newPage}"]`);
+    if(activeLink){
+        activeLink.classList.add("active")
+    }
+}
 let pageLoading = false;
 
 async function loadPage(page){
@@ -17,6 +27,7 @@ async function loadPage(page){
     htmlPage.innerHTML = html;
     mainContainer.scrollTo(0, 0);
     htmlPage.classList.remove("fade")
+    updateHighlight(page);
     await sleep(400);
     pageLoading = false;
 }
