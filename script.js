@@ -5,7 +5,11 @@ const pages = [
     "introduction/usefulTools.html",
     "countdown/overview.html",
     "countdown/math.html",
-    "countdown/display.html"
+    "countdown/display.html",
+    "screens/overview.html",
+    "screens/overlay.html",
+    "screens/background.html",
+    "screens/items.html"
 ]
 
 function updateHighlight(newPage){
@@ -16,6 +20,36 @@ function updateHighlight(newPage){
     const activeLink = document.querySelector(`.nav-link[data-page="${newPage}"]`);
     if(activeLink){
         activeLink.classList.add("active")
+    }
+}
+
+function shapeMove(){
+    const shape = document.querySelectorAll(".smoothAnimation2");
+    if (shape){
+    shape.style.transition = "none";
+        shape.style.opacity = "0";
+        shape.style.translate = "0px 0px";
+        shape.style.rotate= "0deg";
+        void shape.offsetHeight;
+
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                shape.style.transition = "opacity 1s ease";
+                shape.style.opacity = "1";
+                setTimeout(() => {
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = Math.max(window.innerWidth, window.innerHeight)/3
+
+                    const targetX = Math.round(Math.cos(angle) * distance);
+                    const targetY = Math.round(Math.sin(angle) * distance);
+
+                    shape.style.transition = "translate 2s linear, rotate 3s linear";
+                    shape.style.translate = `${targetX}px ${targetY}px`;
+                    shape.style.rotate= "720deg";
+                }, 1000);
+
+            });
+        });
     }
 }
 let pageLoading = false;
@@ -30,6 +64,9 @@ async function loadPage(page){
     htmlPage.classList.add("fade");
     await sleep(350);
     htmlPage.innerHTML = html;
+    requestAnimationFrame(() => {
+        shapeMove();
+    });
     mainContainer.scrollTo(0, 0);
     htmlPage.classList.remove("fade")
     updateHighlight(page);
@@ -42,9 +79,9 @@ const buttons = document.querySelectorAll('button');
 buttons.forEach((button, index) => {
     button.addEventListener('click', (event) => {
         const buttonTarget = button.dataset.bsTarget; 
-
+        if (!buttonTarget) return;
         const subtopic = document.querySelector(buttonTarget);
-
+        if (!subtopic) return;
         if (subtopic.classList.contains("open")) {
             subtopic.style.height = "0px";
         } else {
@@ -84,13 +121,18 @@ main.addEventListener('scroll', () =>{
     };
 });
 
-
-const intervalId = setInterval(() => {
-    const animation = document.getElementById("smoothAnimation1");
-
-    if(animation){
-        animation.classList.toggle("open");
-    }   
-}, 2000);
+const shape = document.querySelectorAll(".smoothAnimation2");
+if(shape){
+    shape.addEventListener("transitionend", (e) => {
+        if (e.propertyName === "translate") {
+            shapeMove();
+        }
+    });
+}
+document.addEventListener("transitionend", (e) => {
+    if (e.target && e.target.class === "smoothAnimation2" && e.propertyName === "translate") {
+        shapeMove();
+    }
+});
 
 loadPage("introduction/overview.html");

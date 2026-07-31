@@ -184,11 +184,25 @@ body {
     transition: translate 2s ease, rotate 2s ease;
     
 }
-
+.smoothAnimation2{
+    position: absolute;
+    left:50%;
+    top: 50%;
+    transform-origin: center;
+    pointer-events: none;
+    
+}
+.animationCanvas{
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow:hidden;
+}
 .smoothAnimation1.open{
    translate: 700px 0px;
    rotate: 360deg;
 }
+
 
 .card-title a:hover{
     color:rgb(224, 224, 206);
