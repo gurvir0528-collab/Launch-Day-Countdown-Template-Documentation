@@ -23,8 +23,7 @@ function updateHighlight(newPage){
     }
 }
 
-function shapeMove(){
-    const shape = document.querySelectorAll(".smoothAnimation2");
+function singleShapeMove(shape){
     if (shape){
     shape.style.transition = "none";
         shape.style.opacity = "0";
@@ -52,6 +51,14 @@ function shapeMove(){
         });
     }
 }
+
+function shapeMove(){
+    const shapes = document.querySelectorAll(".smoothAnimation2");
+    shapes.forEach(shape => {
+        singleShapeMove(shape);
+    });
+}
+
 let pageLoading = false;
 
 async function loadPage(page){
@@ -121,17 +128,9 @@ main.addEventListener('scroll', () =>{
     };
 });
 
-const shape = document.querySelectorAll(".smoothAnimation2");
-if(shape){
-    shape.addEventListener("transitionend", (e) => {
-        if (e.propertyName === "translate") {
-            shapeMove();
-        }
-    });
-}
 document.addEventListener("transitionend", (e) => {
-    if (e.target && e.target.class === "smoothAnimation2" && e.propertyName === "translate") {
-        shapeMove();
+    if (e.target && e.target.classList.contains("smoothAnimation2") && e.propertyName === "translate") {
+        singleShapeMove(e.target);
     }
 });
 
